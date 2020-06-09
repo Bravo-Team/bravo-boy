@@ -25,6 +25,10 @@ public class SimpleGfxGrid implements Grid {
     public void init() {
         this.background = new Picture(PADDING, PADDING, "C:\\Users\\ASUS\\Bravo_Team\\bravo-boy\\bravo-boy\\src\\org\\academiadecodigo\\gitbusters\\bravoteam\\Resources\\WuBj.gif");
         background.draw();
+        for (int i = 0; i < 19; i++) {
+            Picture floor = new Picture(columnToX(i),rowToYWithoutPad(11),"C:\\Users\\ASUS\\Bravo_Team\\bravo-boy\\bravo-boy\\src\\org\\academiadecodigo\\gitbusters\\bravoteam\\Resources\\ezgif-5-0aeed1010d0a.png");
+            floor.draw();
+        }
     }
 
     /**
@@ -106,6 +110,10 @@ public class SimpleGfxGrid implements Grid {
      */
     public int rowToY(int row) {
         return row * cellSize + PADDING;
+    }
+
+    public int rowToYWithoutPad(int row) {
+        return row * cellSize;
     }
 
     /**
