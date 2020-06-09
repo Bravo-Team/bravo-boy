@@ -3,14 +3,15 @@ package org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx;
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxGrid implements Grid {
 
     public static final int PADDING = 10;
-    private final int cellSize = 15;
+    private final int cellSize = 50;
     private final int cols;
     private final int rows;
-    private Rectangle rectangle;
+    private Picture background;
 
     public SimpleGfxGrid(int cols, int rows){
         this.cols = cols;
@@ -22,8 +23,8 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public void init() {
-        this.rectangle = new Rectangle(PADDING, PADDING, cols * cellSize,rows * cellSize);
-        rectangle.draw();
+        this.background = new Picture(PADDING, PADDING, "C:\\Users\\ASUS\\Bravo_Team\\bravo-boy\\bravo-boy\\src\\org\\academiadecodigo\\gitbusters\\bravoteam\\Resources\\WuBj.gif");
+        background.draw();
     }
 
     /**
@@ -47,7 +48,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the width of the grid
      */
     public int getWidth() {
-        return rectangle.getWidth();
+        return background.getWidth();
     }
 
     /**
@@ -55,7 +56,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the height of the grid
      */
     public int getHeight() {
-        return rectangle.getHeight();
+        return background.getHeight();
     }
 
     /**
@@ -63,7 +64,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the x position of the grid
      */
     public int getX() {
-        return rectangle.getX();
+        return background.getX();
     }
 
     /**
@@ -71,7 +72,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the y position of the grid
      */
     public int getY() {
-        return rectangle.getY();
+        return background.getY();
     }
 
     /**
