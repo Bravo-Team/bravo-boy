@@ -1,7 +1,7 @@
 package org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx;
 
-import org.academiadecodigo.gitbusters.bravoteam.grid.GridColor;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridPicture;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.AbstractGridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -9,35 +9,22 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 /**
  * Simple graphics position
  */
-public class SimpleGfxGridPosition extends AbstractGridPosition {
+public class SimpleGfxGridPositionHero extends AbstractGridPosition {
 
     private Picture hero;
-    private Picture block;
+
     private SimpleGfxGrid simpleGfxGrid;
 
-    /**
-     * Simple graphics position constructor
-     * @param grid Simple graphics grid
-     */
-    public SimpleGfxGridPosition(SimpleGfxGrid grid){
-        super((int) (Math.random() * grid.getCols()), (int) (Math.random() * grid.getRows()), grid);
 
-        simpleGfxGrid = (SimpleGfxGrid) getGrid();
-        this.hero = new Picture(grid.columnToX(getCol()), grid.rowToYWithoutPad(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
-        hero.draw();
-
-        this.block = new Picture(grid.columnToX(8), grid.rowToYWithoutPad(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
-        block.draw();
-
-    }
 
     /**
      * Simple graphics position constructor
-     * @param col position column
-     * @param row position row
+     *
+     * @param col  position column
+     * @param row  position row
      * @param grid Simple graphics grid
      */
-    public SimpleGfxGridPosition(int col, int row, SimpleGfxGrid grid){
+    public SimpleGfxGridPositionHero(int col, int row, SimpleGfxGrid grid) {
         super(col, row, grid);
 
         simpleGfxGrid = (SimpleGfxGrid) getGrid();
@@ -45,10 +32,11 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         this.hero = new Picture(grid.columnToX(col), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
 
-        this.block = new Picture(grid.columnToX(19), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
-        block.draw();
+
+
 
     }
+
 
     /**
      * @see GridPosition#show()
@@ -56,7 +44,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void show() {
         hero.draw();
-        block.draw();
+
     }
 
     /**
@@ -65,7 +53,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void hide() {
         hero.delete();
-        block.delete();
+
     }
 
     /**
@@ -85,12 +73,9 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 //        rectangle.translate(x2 - x1, y2 - y1);
     }
 
-    /**
-     * @see AbstractGridPosition#setColor(GridColor)
-     */
-    @Override
-    public void setColor(GridColor color) {
-        super.setColor(color);
+
+    public void setColor(GridPicture gridPicture) {
+        super.setGridPicture(gridPicture);
     }
 
 }

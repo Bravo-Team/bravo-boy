@@ -1,7 +1,7 @@
 package org.academiadecodigo.gitbusters.bravoteam.grid.position;
 
-import org.academiadecodigo.gitbusters.bravoteam.grid.GridColor;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridPicture;
 
 /**
  * A position on the grid that is capable of moving around
@@ -35,14 +35,12 @@ public interface GridPosition {
      *
      * @return the position getColor
      */
-    public GridColor getColor();
 
     /**
      * Changes the getColor of this grid position
      *
-     * @param color the new position getColor
      */
-    public void setColor(GridColor color);
+    public void setGridPicture(GridPicture gridPicture);
 
     /**
      * Displays the position in the grid

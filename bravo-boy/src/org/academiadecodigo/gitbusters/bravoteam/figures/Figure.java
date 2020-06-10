@@ -28,8 +28,9 @@ abstract public class Figure {
      */
     abstract void move();
 
-
-
+    public FigureType getFigureType() {
+        return figureType;
+    }
 
     public GridPosition getPos() {
         return pos;

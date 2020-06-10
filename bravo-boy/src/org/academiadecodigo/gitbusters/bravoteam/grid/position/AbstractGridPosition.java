@@ -1,8 +1,8 @@
 package org.academiadecodigo.gitbusters.bravoteam.grid.position;
 
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
-import org.academiadecodigo.gitbusters.bravoteam.grid.GridColor;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridPicture;
 
 /**
  * Base skeleton for a grid position
@@ -13,7 +13,7 @@ public abstract class AbstractGridPosition implements GridPosition {
 
     private int col;
     private int row;
-    private GridColor color;
+    private GridPicture gridPicture;
     private Grid grid;
 
     /**
@@ -27,7 +27,7 @@ public abstract class AbstractGridPosition implements GridPosition {
         this.col = col;
         this.row = row;
         this.grid = grid;
-        this.color = GridColor.NOCOLOR;
+        this.gridPicture = GridPicture.NOPICTURE;
     }
 
     public Grid getGrid() {
@@ -60,20 +60,15 @@ public abstract class AbstractGridPosition implements GridPosition {
         return row;
     }
 
-    /**
-     * @see GridPosition#getColor()
-     */
-    @Override
-    public GridColor getColor() {
-        return color;
+
+    public GridPicture getColor() {
+        return gridPicture;
     }
 
-    /**
-     * @see GridPosition#setColor(GridColor)
-     */
+
     @Override
-    public void setColor(GridColor color) {
-        this.color = color;
+    public void setGridPicture(GridPicture gridPicture) {
+        this.gridPicture = gridPicture;
         show();
     }
 
@@ -160,7 +155,7 @@ public abstract class AbstractGridPosition implements GridPosition {
         return "GridPosition{" +
                 "col=" + col +
                 ", row=" + row +
-                ", getColor=" + color +
+                ", getColor=" + gridPicture +
                 '}';
     }
 

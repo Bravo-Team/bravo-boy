@@ -1,42 +1,32 @@
 package org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx;
 
-import org.academiadecodigo.gitbusters.bravoteam.grid.GridColor;
+
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridPicture;
 import org.academiadecodigo.simplegraphics.graphics.Color;
+
 
 public class SimpleGfxColorMapper {
 
-    private static final Color colors[] = {
-            Color.RED,
-            Color.GREEN,
-            Color.BLUE,
-            Color.MAGENTA,
-            Color.WHITE
+    private static final GridPicture pictures[] = {
+            GridPicture.HERO,
+            GridPicture.BLOCK
     };
 
-    public static Color getColor(GridColor color){
+    public static String getPicturePath(GridPicture picture){
 
-        Color sGfxColor = null;
+        String sGfxPicture = null;
 
-        switch (color) {
-            case RED:
-                sGfxColor = colors[0];
+        switch (picture) {
+            case HERO:
+                sGfxPicture = "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png";
                 break;
-            case GREEN:
-                sGfxColor = colors[1];
-                break;
-            case BLUE:
-                sGfxColor = colors[2];
-                break;
-            case MAGENTA:
-                sGfxColor = colors[3];
-                break;
-            case NOCOLOR:
-                sGfxColor = colors[4];
+            case BLOCK:
+                sGfxPicture = "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png";
                 break;
             default:
                 System.out.println("something went terribly wrong...");
         }
 
-        return sGfxColor;
+        return sGfxPicture;
     }
 }

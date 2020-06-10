@@ -13,4 +13,6 @@ public class Block extends Figure {
     void move() {
 
     }
+
+
 }

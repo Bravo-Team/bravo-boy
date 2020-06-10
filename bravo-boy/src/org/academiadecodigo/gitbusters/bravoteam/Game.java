@@ -3,6 +3,7 @@ package org.academiadecodigo.gitbusters.bravoteam;
 import org.academiadecodigo.gitbusters.bravoteam.figures.*;
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridFactory;
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridPicture;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridType;
 
 public class Game {
@@ -37,8 +38,8 @@ public class Game {
 
         grid.init();
 
-        Figure hero = new Hero(grid.makeGridPosition(2, 10));
-        Figure block = new Block(grid.makeGridPosition(8 ,10));
+        Figure hero = new Hero(grid.makeGridPosition(2, 10,FigureType.HERO));
+        Figure block = new Block(grid.makeGridPosition(18,10,FigureType.BLOCK));
 
 
     }

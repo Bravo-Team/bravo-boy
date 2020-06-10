@@ -1,5 +1,6 @@
 package org.academiadecodigo.gitbusters.bravoteam.grid;
 
+import org.academiadecodigo.gitbusters.bravoteam.figures.FigureType;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 
 public interface Grid {
@@ -28,7 +29,6 @@ public interface Grid {
      *
      * @return the new grid position
      */
-    public GridPosition makeGridPosition();
 
     /**
      * Creates a a grid position in a specific column and row
@@ -37,6 +37,6 @@ public interface Grid {
      * @param row   the position row
      * @return the new grid position
      */
-    public GridPosition makeGridPosition(int col, int row);
+    public GridPosition makeGridPosition(int col, int row, FigureType figureType);
 
 }

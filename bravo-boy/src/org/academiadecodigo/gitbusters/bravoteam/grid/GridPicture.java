@@ -3,12 +3,10 @@ package org.academiadecodigo.gitbusters.bravoteam.grid;
 /**
  * The available grid colors
  */
-public enum GridColor {
+public enum GridPicture {
 
-    RED,
-    GREEN,
-    BLUE,
-    MAGENTA,
-    NOCOLOR
+    HERO,
+    BLOCK,
+    NOPICTURE,
 
 }

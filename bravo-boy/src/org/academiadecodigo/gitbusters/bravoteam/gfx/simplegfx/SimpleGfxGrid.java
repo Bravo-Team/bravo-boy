@@ -1,8 +1,9 @@
 package org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx;
 
+import org.academiadecodigo.gitbusters.bravoteam.figures.FigureType;
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridPicture;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxGrid implements Grid {
@@ -91,20 +92,20 @@ public class SimpleGfxGrid implements Grid {
         return cellSize;
     }
 
-    /**
-     * @see Grid#makeGridPosition()
-     */
-    @Override
-    public GridPosition makeGridPosition() {
-        return (GridPosition) new SimpleGfxGridPosition(this);
-    }
 
-    /**
-     * @see Grid#makeGridPosition(int, int)
-     */
+
+
+
     @Override
-    public GridPosition makeGridPosition(int col, int row) {
-        return (GridPosition) new SimpleGfxGridPosition(col, row, this);
+    public GridPosition makeGridPosition(int col, int row, FigureType figureType) {
+        GridPosition position = new SimpleGfxGridPositionHero(col, row, this);
+        switch (figureType) {
+            case HERO:
+                position = new SimpleGfxGridPositionHero(col, row, this);
+            case BLOCK:
+                position = new SimpleGfxGridPositionBlock(col, row, this);
+        }
+        return position;
     }
 
     /**
