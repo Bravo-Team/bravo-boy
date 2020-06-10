@@ -12,6 +12,7 @@ abstract public class Figure {
     private Grid grid;
     private FigureType figureType;
 
+
     public Figure(GridPosition pos, FigureType figureType){
         this.pos = pos;
         this.figureType = figureType;

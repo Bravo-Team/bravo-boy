@@ -1,6 +1,7 @@
 package org.academiadecodigo.gitbusters.bravoteam.figures;
 
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 /**
  * Hero is the player of the game

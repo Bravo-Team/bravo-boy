@@ -4,7 +4,6 @@ import org.academiadecodigo.gitbusters.bravoteam.grid.GridColor;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.AbstractGridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -13,7 +12,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class SimpleGfxGridPosition extends AbstractGridPosition {
 
     private Picture hero;
-//    private Rectangle rectangle;
     private SimpleGfxGrid simpleGfxGrid;
 
     /**
@@ -23,12 +21,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     public SimpleGfxGridPosition(SimpleGfxGrid grid){
         super((int) (Math.random() * grid.getCols()), (int) (Math.random() * grid.getRows()), grid);
 
-//        simpleGfxGrid = (SimpleGfxGrid) getGrid();
-//        this.rectangle = new Rectangle(grid.columnToX(getCol()), grid.rowToY(getRow()) , grid.getCellSize(),  grid.getCellSize());
-//        rectangle.draw();
-
         simpleGfxGrid = (SimpleGfxGrid) getGrid();
-        this.hero = new Picture(grid.columnToX(getCol()), grid.rowToY(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
+        this.hero = new Picture(grid.columnToX(getCol()), grid.rowToYWithoutPad(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
     }
 
@@ -40,13 +34,10 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     public SimpleGfxGridPosition(int col, int row, SimpleGfxGrid grid){
         super(col, row, grid);
-//        simpleGfxGrid = (SimpleGfxGrid) getGrid();
-//
-//        this.rectangle = new Rectangle(grid.columnToX(col), grid.rowToY(row), grid.getCellSize(),  grid.getCellSize());
-//        rectangle.draw();
+
         simpleGfxGrid = (SimpleGfxGrid) getGrid();
 
-        this.hero = new Picture(grid.columnToX(getCol()), grid.rowToY(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
+        this.hero = new Picture(grid.columnToX(col), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
     }
 
@@ -56,8 +47,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void show() {
         hero.draw();
-//        rectangle.fill();
-
     }
 
     /**
@@ -66,7 +55,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void hide() {
         hero.delete();
-//        rectangle.delete();
     }
 
     /**
@@ -91,7 +79,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     @Override
     public void setColor(GridColor color) {
-//        rectangle.setColor(SimpleGfxColorMapper.getColor(color));
         super.setColor(color);
     }
 

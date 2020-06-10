@@ -1,11 +1,11 @@
 package org.academiadecodigo.gitbusters.bravoteam;
 
+import org.academiadecodigo.gitbusters.bravoteam.figures.*;
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridFactory;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridType;
 
 public class Game {
-
 
     private Grid grid;
 
@@ -13,6 +13,11 @@ public class Game {
      * Animation delay
      */
     private int delay;
+
+    /**
+     * Number of cars to manufacture
+     */
+    private int manufacturedFigures = 4;
 
     /**
      * Constructs a new game
@@ -30,9 +35,10 @@ public class Game {
 
     public void init() {
 
-
         grid.init();
-
+//
+        Figure hero = new Hero(grid.makeGridPosition(2, 10));
+//        Figure block = new Block(grid.makeGridPosition());
 
 
     }
