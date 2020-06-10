@@ -29,10 +29,8 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
 
         simpleGfxGrid = (SimpleGfxGrid) getGrid();
 
-        this.hero = new Picture(grid.columnToX(col), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
+        this.hero = new Picture(grid.columnToX(col), grid.rowToY(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
-
-
 
 
     }

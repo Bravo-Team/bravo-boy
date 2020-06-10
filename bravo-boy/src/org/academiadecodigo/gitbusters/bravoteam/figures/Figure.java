@@ -1,6 +1,7 @@
 package org.academiadecodigo.gitbusters.bravoteam.figures;
 
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
+import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 
 /**
@@ -11,6 +12,7 @@ abstract public class Figure {
     private GridPosition pos;
     private Grid grid;
     private FigureType figureType;
+    private boolean collided;
 
     /**
      * Constructs a new figure
@@ -22,6 +24,12 @@ abstract public class Figure {
         this.pos = pos;
         this.figureType = figureType;
     }
+
+
+    public boolean isCollided() {
+        return collided;
+    }
+
 
     /**
      * Perform specific moving behaviour according to the figure type

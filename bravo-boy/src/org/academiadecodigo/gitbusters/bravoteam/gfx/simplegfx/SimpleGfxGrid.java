@@ -25,12 +25,12 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public void init() {
-        this.background = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\background.gif");
+        this.background = new Picture(PADDING, PADDING*2, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\background.gif");
         background.draw();
 
 
         for (int i = 0; i < 19; i++) {
-            Picture floor = new Picture(columnToX(i),rowToYWithoutPad(11),"src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\ground-tile.png");
+            Picture floor = new Picture(columnToX(i),rowToY(11),"src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\ground-tile.png");
             floor.draw();
         }
 
@@ -98,14 +98,14 @@ public class SimpleGfxGrid implements Grid {
 
     @Override
     public GridPosition makeGridPosition(int col, int row, FigureType figureType) {
-        GridPosition position = new SimpleGfxGridPositionHero(col, row, this);
+//        GridPosition position = new SimpleGfxGridPositionHero(col, row, this);
         switch (figureType) {
             case HERO:
-                position = new SimpleGfxGridPositionHero(col, row, this);
+                return new SimpleGfxGridPositionHero(col, row, this);
             case BLOCK:
-                position = new SimpleGfxGridPositionBlock(col, row, this);
+                return new SimpleGfxGridPositionBlock(col, row, this);
         }
-        return position;
+        return null;
     }
 
     /**

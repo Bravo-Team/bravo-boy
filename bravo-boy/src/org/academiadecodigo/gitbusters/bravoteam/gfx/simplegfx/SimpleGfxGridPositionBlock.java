@@ -32,10 +32,8 @@ public class SimpleGfxGridPositionBlock extends AbstractGridPosition {
 
         simpleGfxGrid = (SimpleGfxGrid) getGrid();
 
-
         this.block = new Picture(grid.columnToX(getCol()), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
         block.draw();
-
 
     }
 
