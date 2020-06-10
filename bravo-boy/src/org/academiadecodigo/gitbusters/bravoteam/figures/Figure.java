@@ -12,7 +12,12 @@ abstract public class Figure {
     private Grid grid;
     private FigureType figureType;
 
-
+    /**
+     * Constructs a new figure
+     *
+     * @param pos     the initial figure position
+     * @param figureType the figure type
+     */
     public Figure(GridPosition pos, FigureType figureType){
         this.pos = pos;
         this.figureType = figureType;

@@ -12,6 +12,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class SimpleGfxGridPosition extends AbstractGridPosition {
 
     private Picture hero;
+    private Picture block;
     private SimpleGfxGrid simpleGfxGrid;
 
     /**
@@ -24,6 +25,10 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         simpleGfxGrid = (SimpleGfxGrid) getGrid();
         this.hero = new Picture(grid.columnToX(getCol()), grid.rowToYWithoutPad(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
+
+        this.block = new Picture(grid.columnToX(8), grid.rowToYWithoutPad(getRow()), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+        block.draw();
+
     }
 
     /**
@@ -39,6 +44,10 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 
         this.hero = new Picture(grid.columnToX(col), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
+
+        this.block = new Picture(grid.columnToX(19), grid.rowToYWithoutPad(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+        block.draw();
+
     }
 
     /**
@@ -47,6 +56,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void show() {
         hero.draw();
+        block.draw();
     }
 
     /**
@@ -55,6 +65,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void hide() {
         hero.delete();
+        block.delete();
     }
 
     /**

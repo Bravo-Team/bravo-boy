@@ -8,6 +8,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
  */
 public class Hero extends Figure {
 
+
     /**
      * Constructs a new figure type Hero
      *

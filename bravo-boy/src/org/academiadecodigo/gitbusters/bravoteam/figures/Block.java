@@ -4,6 +4,7 @@ import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 
 public class Block extends Figure {
 
+
     public Block(GridPosition pos) {
         super(pos, FigureType.BLOCK);
     }

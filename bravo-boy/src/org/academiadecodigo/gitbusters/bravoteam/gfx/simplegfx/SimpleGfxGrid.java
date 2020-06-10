@@ -13,6 +13,7 @@ public class SimpleGfxGrid implements Grid {
     private final int rows;
     private Picture background;
 
+
     public SimpleGfxGrid(int cols, int rows){
         this.cols = cols;
         this.rows = rows;
@@ -25,10 +26,13 @@ public class SimpleGfxGrid implements Grid {
     public void init() {
         this.background = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\background.gif");
         background.draw();
+
+
         for (int i = 0; i < 19; i++) {
             Picture floor = new Picture(columnToX(i),rowToYWithoutPad(11),"src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\ground-tile.png");
             floor.draw();
         }
+
     }
 
     /**

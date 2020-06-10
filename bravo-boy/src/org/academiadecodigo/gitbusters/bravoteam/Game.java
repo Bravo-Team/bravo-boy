@@ -36,9 +36,9 @@ public class Game {
     public void init() {
 
         grid.init();
-//
+
         Figure hero = new Hero(grid.makeGridPosition(2, 10));
-//        Figure block = new Block(grid.makeGridPosition());
+        Figure block = new Block(grid.makeGridPosition(8 ,10));
 
 
     }
