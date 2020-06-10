@@ -37,6 +37,9 @@ public class SimpleGfxGridPositionBlock extends AbstractGridPosition {
 
     }
 
+    public Picture getBlock() {
+        return block;
+    }
 
     /**
      * @see GridPosition#show()
@@ -67,6 +70,8 @@ public class SimpleGfxGridPositionBlock extends AbstractGridPosition {
 
 
         block.translate(-1, 0);
+
+        System.out.println("X: " + block.getX() );
     }
 
 

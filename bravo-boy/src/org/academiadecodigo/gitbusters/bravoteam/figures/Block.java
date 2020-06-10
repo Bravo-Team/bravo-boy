@@ -1,14 +1,21 @@
 package org.academiadecodigo.gitbusters.bravoteam.figures;
 
+import org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx.SimpleGfxGridPositionBlock;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Block extends Figure {
 
     public final static int SPEED = 1;
+    private Picture picture;
+    private SimpleGfxGridPositionBlock simpleGfxGridPositionBlock;
 
     public Block(GridPosition pos) {
         super(pos, FigureType.BLOCK);
+        simpleGfxGridPositionBlock = (SimpleGfxGridPositionBlock) pos;
+        this.picture = simpleGfxGridPositionBlock.getBlock();
+
     }
 
     @Override
@@ -49,5 +56,7 @@ public class Block extends Figure {
     }
 
 
-
+    public Picture getPicture() {
+        return picture;
+    }
 }
