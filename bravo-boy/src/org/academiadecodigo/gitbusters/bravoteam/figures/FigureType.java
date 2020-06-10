@@ -1,4 +1,12 @@
 package org.academiadecodigo.gitbusters.bravoteam.figures;
 
-public class FigureType {
+public enum FigureType {
+
+    HERO,
+    BLOCK;
+
+    FigureType(){
+
+    }
+
 }
