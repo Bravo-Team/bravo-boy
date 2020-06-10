@@ -16,6 +16,7 @@ public abstract class AbstractGridPosition implements GridPosition {
     private GridPicture gridPicture;
     private Grid grid;
 
+
     /**
      * Construct a new grid position at a specific column and row
      *

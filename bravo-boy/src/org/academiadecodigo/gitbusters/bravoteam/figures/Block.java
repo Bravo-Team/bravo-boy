@@ -5,14 +5,18 @@ import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
 
 public class Block extends Figure {
 
+    public final static int SPEED = 1;
 
     public Block(GridPosition pos) {
         super(pos, FigureType.BLOCK);
     }
 
     @Override
-    void move() {
-
+    public void move() {
+        for (int i = 0; i < 10; i++) {
+            accelerate(GridDirection.LEFT, Block.SPEED);
+            getPos().show();
+        }
     }
 
 
@@ -24,22 +28,23 @@ public class Block extends Figure {
         }
 
 
-        GridDirection newDirection = direction;
 
-        // Perform a U turn if we have bumped against the wall
-        if (isHittingWall()) {
-            newDirection = direction.oppositeDirection();
+
+        if (getPos().getCol() == 10) {
+            getPos().hide();
         }
 
         // Accelerate in the choosen direction
-        this.currentDirection = newDirection;
-        for (int i = 0; i < speed; i++) {
-            getPos().moveInDirection(newDirection, 1);
-            if (collisionDetector.isUnSafe(getPos())) {
-                crash();
-                break;
-            }
-        }
+        getPos().moveInDirection(direction, speed);
+
+//        this.currentDirection = newDirection;
+//        for (int i = 0; i < speed; i++) {
+//            getPos().moveInDirection(newDirection, 1);
+//            if (collisionDetector.isUnSafe(getPos())) {
+//                crash();
+//                break;
+//            }
+//        }
 
     }
 

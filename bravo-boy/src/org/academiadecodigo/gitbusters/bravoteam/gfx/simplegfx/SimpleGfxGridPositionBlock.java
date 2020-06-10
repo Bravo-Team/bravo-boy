@@ -62,15 +62,11 @@ public class SimpleGfxGridPositionBlock extends AbstractGridPosition {
     @Override
     public void moveInDirection(GridDirection direction, int distance) {
 
-//        int x1 = simpleGfxGrid.columnToX(getCol());
-//        int y1 = simpleGfxGrid.rowToY(getRow());
-//
-//        super.moveInDirection(direction, distance);
-//
-//        int x2 = simpleGfxGrid.columnToX(getCol());
-//        int y2 = simpleGfxGrid.rowToY(getRow());
-//
-//        rectangle.translate(x2 - x1, y2 - y1);
+
+        super.moveInDirection(direction, distance);
+
+
+        block.translate(-1, 0);
     }
 
 

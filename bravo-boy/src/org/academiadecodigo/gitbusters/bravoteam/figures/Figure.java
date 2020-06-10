@@ -31,6 +31,7 @@ abstract public class Figure {
     }
 
 
+
     /**
      * Perform specific moving behaviour according to the figure type
      */
