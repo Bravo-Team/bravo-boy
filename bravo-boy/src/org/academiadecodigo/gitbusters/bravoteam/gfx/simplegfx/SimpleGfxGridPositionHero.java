@@ -74,9 +74,9 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
 
 
         if (hero.getY() == 400){
-            for (int i = 0; i < 110; i++) {
+//            for (int i = 0; i < 110; i++) {
                 hero.translate(0,1);
-            }
+//            }
         }
 
 

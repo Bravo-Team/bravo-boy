@@ -83,7 +83,7 @@ public class Game2 {
 //                int numRand = (int) Math.round(Math.random() * 400);
 
                 if (simpleGfxGrid.columnToX(block.getPos().getCol()) == 10) {
-                    System.out.println("entrou no cu do tony");
+//                    System.out.println("entrou no cu do tony");
 //                    Block block1 = new Block(grid.makeGridPosition(18, 10, FigureType.BLOCK));
 //                    this.block1 = block1;
                 }
