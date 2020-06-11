@@ -3,6 +3,7 @@ package org.academiadecodigo.gitbusters.bravoteam.figures;
 import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
 import org.academiadecodigo.gitbusters.bravoteam.grid.position.GridPosition;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Generic Figure, should be extended
@@ -20,7 +21,7 @@ abstract public class Figure {
      * @param pos     the initial figure position
      * @param figureType the figure type
      */
-    public Figure(GridPosition pos, FigureType figureType){
+    public Figure(GridPosition pos, FigureType figureType ){
         this.pos = pos;
         this.figureType = figureType;
     }
