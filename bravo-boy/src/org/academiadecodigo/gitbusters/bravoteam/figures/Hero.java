@@ -9,6 +9,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
  */
 public class Hero extends Figure {
 
+    private int delay;
 
     /**
      * Constructs a new figure type Hero
@@ -36,7 +37,8 @@ public class Hero extends Figure {
         }
 
 
-        GridDirection newDirection = direction;
+        getPos().moveInDirection(GridDirection.UP, 1);
+
 
 //        // Perform a U turn if we have bumped against the wall
 //        if (isHittingWall()) {

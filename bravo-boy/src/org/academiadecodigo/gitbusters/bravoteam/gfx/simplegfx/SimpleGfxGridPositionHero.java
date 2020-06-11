@@ -16,7 +16,6 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
     private SimpleGfxGrid simpleGfxGrid;
 
 
-
     /**
      * Simple graphics position constructor
      *
@@ -63,12 +62,25 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
 //        int x1 = simpleGfxGrid.columnToX(getCol());
 //        int y1 = simpleGfxGrid.rowToY(getRow());
 //
-//        super.moveInDirection(direction, distance);
+
 //
 //        int x2 = simpleGfxGrid.columnToX(getCol());
 //        int y2 = simpleGfxGrid.rowToY(getRow());
 //
-//        rectangle.translate(x2 - x1, y2 - y1);
+
+        super.moveInDirection(direction, distance);
+
+        hero.translate(0, -110);
+
+
+        if (hero.getY() == 400){
+            for (int i = 0; i < 110; i++) {
+                hero.translate(0,1);
+            }
+        }
+
+
+
     }
 
 
