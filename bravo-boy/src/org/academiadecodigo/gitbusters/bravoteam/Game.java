@@ -1,5 +1,6 @@
 package org.academiadecodigo.gitbusters.bravoteam;
 
+import org.academiadecodigo.gitbusters.bravoteam.KeyboardListener.KeyboardListener;
 import org.academiadecodigo.gitbusters.bravoteam.figures.*;
 import org.academiadecodigo.gitbusters.bravoteam.grid.*;
 
@@ -8,7 +9,7 @@ public class Game {
     private Grid grid;
     private Block block;
     private Block upperBlock;
-
+    private Hero hero;
 
     /**
      * Animation delay
@@ -39,14 +40,15 @@ public class Game {
 
         grid.init();
 
-        Figure hero = new Hero(grid.makeGridPosition(2, 10, FigureType.HERO));
-        block = new Block(grid.makeGridPosition(18, 10, FigureType.BLOCK));
-        upperBlock = new Block(grid.makeGridPosition(18, 9, FigureType.BLOCK));
+        this.hero = new Hero(grid.makeGridPosition(2, 10, FigureType.HERO));
+        this.block = new Block(grid.makeGridPosition(18, 10, FigureType.BLOCK));
+        this.upperBlock = new Block(grid.makeGridPosition(18, 9, FigureType.BLOCK));
 
     }
 
     public void start() throws InterruptedException {
 
+        new KeyboardListener(hero).setupKeys();
 
         while (true) {
 

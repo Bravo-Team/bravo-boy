@@ -59,26 +59,15 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
     @Override
     public void moveInDirection(GridDirection direction, int distance) {
 
-//        int x1 = simpleGfxGrid.columnToX(getCol());
-//        int y1 = simpleGfxGrid.rowToY(getRow());
-//
-
-//
-//        int x2 = simpleGfxGrid.columnToX(getCol());
-//        int y2 = simpleGfxGrid.rowToY(getRow());
-//
-
         super.moveInDirection(direction, distance);
 
         hero.translate(0, -110);
 
-
-        if (hero.getY() == 400){
-//            for (int i = 0; i < 110; i++) {
-                hero.translate(0,1);
-//            }
-        }
-
+//        if (hero.getY() == 400){
+////            for (int i = 0; i < 110; i++) {
+//                hero.translate(0,1);
+////            }
+//        }
 
 
     }
