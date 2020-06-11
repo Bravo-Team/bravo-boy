@@ -7,7 +7,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Block extends Figure {
 
-    public final static int SPEED = 1;
+    public final static int SPEED = 5;
     private Picture picture;
     private SimpleGfxGridPositionBlock simpleGfxGridPositionBlock;
 
@@ -20,12 +20,12 @@ public class Block extends Figure {
 
     @Override
     public void move() {
+
         for (int i = 0; i < 10; i++) {
             accelerate(GridDirection.LEFT, Block.SPEED);
             getPos().show();
         }
     }
-
 
     public void accelerate(GridDirection direction, int speed) {
 
@@ -33,9 +33,6 @@ public class Block extends Figure {
             // STOP
 
         }
-
-
-
 
         if (getPos().getCol() == 10) {
             getPos().hide();
@@ -54,7 +51,6 @@ public class Block extends Figure {
 //        }
 
     }
-
 
     public Picture getPicture() {
         return picture;

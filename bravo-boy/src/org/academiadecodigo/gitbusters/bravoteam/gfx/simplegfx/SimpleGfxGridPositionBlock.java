@@ -69,7 +69,7 @@ public class SimpleGfxGridPositionBlock extends AbstractGridPosition {
         super.moveInDirection(direction, distance);
 
 
-        block.translate(-1, 0);
+        block.translate(-10, 0);
 
         System.out.println("X: " + block.getX() );
     }

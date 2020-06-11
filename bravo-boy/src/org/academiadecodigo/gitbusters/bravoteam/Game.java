@@ -7,6 +7,7 @@ public class Game {
 
     private Grid grid;
     private Block block;
+    private Block upperBlock;
 
 
     /**
@@ -40,6 +41,7 @@ public class Game {
 
         Figure hero = new Hero(grid.makeGridPosition(2, 10, FigureType.HERO));
         block = new Block(grid.makeGridPosition(18, 10, FigureType.BLOCK));
+        upperBlock = new Block(grid.makeGridPosition(18, 9, FigureType.BLOCK));
 
     }
 
@@ -52,6 +54,7 @@ public class Game {
             Thread.sleep(delay);
 
             block.accelerate(GridDirection.LEFT, 1);
+            upperBlock.accelerate(GridDirection.LEFT, 1);
 
             if (block.getPicture().getX() == -60) {
                 block = new Block(grid.makeGridPosition(18, 10, FigureType.BLOCK));
