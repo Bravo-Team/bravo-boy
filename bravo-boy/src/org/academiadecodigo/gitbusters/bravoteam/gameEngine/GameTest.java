@@ -1,5 +1,7 @@
 package org.academiadecodigo.gitbusters.bravoteam.gameEngine;
 
+import org.academiadecodigo.gitbusters.bravoteam.Utility.Random;
+import org.academiadecodigo.gitbusters.bravoteam.figures.Block;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -9,15 +11,23 @@ public class GameTest {
     private static final int CANVAS_HEIGHT = 540;
     private static final int CELLSIZE = 50;
     private static final int PADDING = 10;
-    private static final int jumpHeight = -50;
+    private static final int jumpHeight = -200;
     private boolean jump;
+    private boolean inAir;
     private boolean isRunning = true;
     private boolean onGrounded = true;
     private Picture hero;
     private Picture background;
     private Picture ground;
     private Picture block;
+    private Picture block1;
     private int increment = PADDING;
+    private int random1 = Random.getRandomNum(1, 400);
+    private int random2 = Random.getRandomNum(1, 400);
+    private int random3 = Random.getRandomNum(1, 400);
+    private int random4 = Random.getRandomNum(1, 400);
+    private int random5 = Random.getRandomNum(1, 400);
+
 
     public GameTest() throws InterruptedException {
         new KeyboardSetup(this);
@@ -30,25 +40,91 @@ public class GameTest {
 
         while (isRunning) {
 
-            Thread.sleep(20);
-            if (hero == null || background == null || ground == null || block == null) {
+            Thread.sleep(10);
+            if (hero == null && background == null && ground == null && block == null) {
                 drawInitialGraphics();
             }
 
             if (jump && onGrounded) {
-                hero.translate(0, jumpHeight);
-                jump = false;
+                hero.translate(0, -5);
                 onGrounded = false;
+                inAir = true;
             }
 
-            if (hero.getY() < 420) {
-                hero.translate(0, 5);
-
-            } else {
+            if (inAir && hero.getY() > 290) {
+                hero.translate(0, -15);
+                if (hero.getY() == 290) {
+                    inAir = false;
+                }
+            } else if (hero.getY() == 490) {
                 onGrounded = true;
+                jump = false;
+
             }
 
-            block.translate(-10, 0);
+            if (hero.getY() < 490) {
+                hero.translate(0, 5);
+            }
+
+            int random = 0;
+
+
+            if (block != null) {
+                if (block.getX() == random1) {
+                    block1 = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                    block1.draw();
+                }
+            }
+
+            if(block != null) {
+                if (block.getX() == 0) {
+                    block.delete();
+                    block = null;
+                }
+            }
+            if (block == null && block1 != null){
+                if (block1.getX() == random1) {
+                    block = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                    block.draw();
+                }
+            }
+
+            if (block1 != null) {
+                if (block1.getX() == 0) {
+                    block1.delete();
+                }
+            }
+
+            if (block1 != null) {
+                block1.translate(-5, 0);
+            }
+
+            if (block != null) {
+                block.translate(-5, 0);
+            }
+
+            if (block1 != null){
+                if (hero.getX() >= block1.getX() - 30 && hero.getX() <= block1.getX() + 30 && hero.getY() <= block1.getY() && hero.getY() >= block1.getY() - 50){
+                    int x = hero.getX();
+                    int y = hero.getY();
+                    hero.delete();
+                    hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
+                    hero.draw();
+                    isRunning = false;
+                }
+            }
+
+            if (block != null){
+                if (hero.getX() >= block.getX() - 30 && hero.getX() <= block.getX() + 30 && hero.getY() <= block.getY() && hero.getY() >= block.getY() - 50){
+                    int x = hero.getX();
+                    int y = hero.getY();
+                    hero.delete();
+                    hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
+                    hero.draw();
+                    isRunning = false;
+                }
+            }
+
         }
 
     }
@@ -64,15 +140,15 @@ public class GameTest {
         background.draw();
 
         for (int i = 0; i < 19; i++) {
-            ground = new Picture(increment, CANVAS_HEIGHT ,"src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\ground-tile.png");
+            ground = new Picture(increment, CANVAS_HEIGHT, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\ground-tile.png");
             ground.draw();
             increment += 50;
         }
 
-        hero = new Picture(50, CANVAS_HEIGHT - CELLSIZE, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
+        hero = new Picture(150, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
 
-        block = new Picture(CANVAS_WEIGHT - CELLSIZE , 480, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+        block = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
         block.draw();
 
     }
