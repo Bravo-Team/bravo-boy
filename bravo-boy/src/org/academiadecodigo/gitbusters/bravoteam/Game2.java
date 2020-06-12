@@ -3,7 +3,6 @@ package org.academiadecodigo.gitbusters.bravoteam;
 
 import org.academiadecodigo.gitbusters.bravoteam.KeyboardListener.KeyboardListener;
 import org.academiadecodigo.gitbusters.bravoteam.figures.Block;
-import org.academiadecodigo.gitbusters.bravoteam.figures.Figure;
 import org.academiadecodigo.gitbusters.bravoteam.figures.FigureType;
 import org.academiadecodigo.gitbusters.bravoteam.figures.Hero;
 import org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx.SimpleGfxGrid;
@@ -11,10 +10,6 @@ import org.academiadecodigo.gitbusters.bravoteam.grid.Grid;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridDirection;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridFactory;
 import org.academiadecodigo.gitbusters.bravoteam.grid.GridType;
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Game2 {
 
@@ -94,5 +89,7 @@ public class Game2 {
         }
 
     }
+
+
 
 }

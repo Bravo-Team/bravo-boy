@@ -11,6 +11,7 @@ public class Hero extends Figure {
 
     private int delay;
 
+
     /**
      * Constructs a new figure type Hero
      *
@@ -18,7 +19,6 @@ public class Hero extends Figure {
      */
     public Hero(GridPosition pos) {
         super(pos, FigureType.HERO);
-
     }
 
     /**
@@ -35,7 +35,6 @@ public class Hero extends Figure {
             // STOP
 
         }
-
 
         getPos().moveInDirection(GridDirection.UP, 1);
 
@@ -56,5 +55,6 @@ public class Hero extends Figure {
 //        }
 
     }
+
 
 }

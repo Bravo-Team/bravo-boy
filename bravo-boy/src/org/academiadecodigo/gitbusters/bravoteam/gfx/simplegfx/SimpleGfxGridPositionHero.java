@@ -31,9 +31,7 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
         this.hero = new Picture(grid.columnToX(col), grid.rowToY(row), "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
 
-
     }
-
 
     /**
      * @see GridPosition#show()
@@ -62,13 +60,6 @@ public class SimpleGfxGridPositionHero extends AbstractGridPosition {
         super.moveInDirection(direction, distance);
 
         hero.translate(0, -110);
-
-//        if (hero.getY() == 400){
-////            for (int i = 0; i < 110; i++) {
-//                hero.translate(0,1);
-////            }
-//        }
-
 
     }
 

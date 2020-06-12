@@ -2,6 +2,7 @@ package org.academiadecodigo.gitbusters.bravoteam;
 
 import org.academiadecodigo.gitbusters.bravoteam.KeyboardListener.KeyboardListener;
 import org.academiadecodigo.gitbusters.bravoteam.figures.*;
+import org.academiadecodigo.gitbusters.bravoteam.gfx.simplegfx.SimpleGfxGridPositionHero;
 import org.academiadecodigo.gitbusters.bravoteam.grid.*;
 
 public class Game {
@@ -10,6 +11,7 @@ public class Game {
     private Block block;
     private Block upperBlock;
     private Hero hero;
+    private SimpleGfxGridPositionHero simpleGfxGridPositionHero;
 
     /**
      * Animation delay
