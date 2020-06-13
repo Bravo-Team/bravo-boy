@@ -25,16 +25,7 @@ public class KeyboardSetupMenu implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-
-        if (keyboardEvent == upKey){
-            try {
-                gameTest.update();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-
+        gameTest.startGame();
     }
 
     @Override
