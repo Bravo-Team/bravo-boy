@@ -24,6 +24,7 @@ public class GameTest {
     private Picture block1;
     private int increment = PADDING;
     private int random1 = Random.getRandomNum(1, 400);
+    private int random2 = Random.getRandomNum(1, 400);
     private Sound gamePlayMusic;
     private Sound gameOverSound;
     private Sound gameOverHit;
@@ -32,30 +33,42 @@ public class GameTest {
     private Picture menuImage;
     private boolean isInMenu = true;
     private boolean startGame = false;
+    private boolean restartAvailable = false;
 
 
 
     public GameTest() throws InterruptedException {
+        new KeyboardSetupRestart(this);
+        new KeyboardSetupMenu(this);
         new KeyboardSetup(this);
-        Rectangle CANVAS = new Rectangle(PADDING,PADDING,CANVAS_WEIGHT,CANVAS_HEIGHT);
+        Rectangle CANVAS = new Rectangle(PADDING, PADDING, CANVAS_WEIGHT, CANVAS_HEIGHT);
         CANVAS.draw();
         update();
     }
 
-    public boolean isInMenu() {
-        return isInMenu;
+    public boolean getIsRunning(){
+        return isRunning;
     }
 
-    public void startGame(){
+    public void stopGameOverMusic(){
+        gameOverHit.stop();
+        gameOverSound.stop();
+    }
+
+    public void setRestartAvailable(boolean restartAvailable) {
+        this.restartAvailable = restartAvailable;
+    }
+
+    public boolean getRestartAvailable() {
+        return restartAvailable;
+    }
+
+
+    public void startGame() {
         startGame = true;
     }
 
-    public void outMenu(){
-        isInMenu = false;
-    }
-
-    public void initMenu(){
-        new KeyboardSetupMenu(this);
+    public void initMenu() {
         menuImage = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\startimg.png");
         menuImage.draw();
         menuMusic = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\menuSong.wav");
@@ -72,6 +85,7 @@ public class GameTest {
                 initMenu();
                 isInMenu = false;
             }
+
 
             if (startGame) {
 
@@ -115,7 +129,7 @@ public class GameTest {
                     }
                 }
                 if (block == null && block1 != null) {
-                    if (block1.getX() == random1) {
+                    if (block1.getX() == random2) {
                         block = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block.draw();
                     }
@@ -169,6 +183,7 @@ public class GameTest {
                         gameOverHit.play(false);
                         gameOverSound = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\gameOver.wav");
                         gameOverSound.play(false);
+
                     }
                 }
             }
@@ -181,7 +196,7 @@ public class GameTest {
         jump = true;
     }
 
-    private void drawInitialGraphics() {
+    public void drawInitialGraphics() {
 
         isInMenu = false;
         menuImage.delete();

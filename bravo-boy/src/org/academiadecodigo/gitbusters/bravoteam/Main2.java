@@ -13,6 +13,13 @@ public class Main2 {
 
         GameTest gameTest = new GameTest();
 
+        while (true) {
+            if (gameTest.getRestartAvailable()) {
+                gameTest.stopGameOverMusic();
+                gameTest = new GameTest();
+            }
+        }
+
 
     }
 }
