@@ -1,5 +1,6 @@
 package org.academiadecodigo.gitbusters.bravoteam.gameEngine;
 
+import org.academiadecodigo.gitbusters.bravoteam.Sound;
 import org.academiadecodigo.gitbusters.bravoteam.Utility.Random;
 import org.academiadecodigo.gitbusters.bravoteam.figures.Block;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
@@ -27,20 +28,50 @@ public class GameTest {
     private int random3 = Random.getRandomNum(1, 400);
     private int random4 = Random.getRandomNum(1, 400);
     private int random5 = Random.getRandomNum(1, 400);
+    private Sound gamePlayMusic;
+    private Sound gameOverSound;
+    private Sound gameOverHit;
+    private Sound menuMusic;
+    private Picture gameOver;
+    private Picture menuImage;
+    private boolean isInMenu = true;
 
 
-    public GameTest() throws InterruptedException {
+
+    public GameTest() {
         new KeyboardSetup(this);
-        Rectangle CANVAS = new Rectangle(PADDING, PADDING, CANVAS_WEIGHT, CANVAS_HEIGHT);
+        Rectangle CANVAS = new Rectangle(PADDING,PADDING,CANVAS_WEIGHT,CANVAS_HEIGHT);
         CANVAS.draw();
-        update();
+        initMenu();
+    }
+
+
+
+    public void outMenu(){
+        isInMenu = false;
+    }
+
+    public void initMenu(){
+        new KeyboardSetupMenu(this);
+        menuImage = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\startimg.png");
+        menuImage.draw();
+        menuMusic = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\menuSong.wav");
+        menuMusic.play(false);
     }
 
     public void update() throws InterruptedException {
 
+        menuImage.delete();
+        menuMusic.stop();
+
+        Sound gamePlayMusic = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\GamePlayMusic.wav");
+        gamePlayMusic.setLoop(1000);
+        gamePlayMusic.play(false);
+
         while (isRunning) {
 
             Thread.sleep(10);
+
             if (hero == null && background == null && ground == null && block == null) {
                 drawInitialGraphics();
             }
@@ -65,8 +96,6 @@ public class GameTest {
             if (hero.getY() < 490) {
                 hero.translate(0, 5);
             }
-
-            int random = 0;
 
 
             if (block != null) {
@@ -110,7 +139,14 @@ public class GameTest {
                     hero.delete();
                     hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
                     hero.draw();
+                    gameOver = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\gameover2.png");
+                    gameOver.draw();
                     isRunning = false;
+                    gamePlayMusic.stop();
+                    gameOverHit = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\punchHit.wav");
+                    gameOverHit.play(false);
+                    gameOverSound = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\gameOver.wav");
+                    gameOverSound.play(false);
                 }
             }
 
@@ -121,10 +157,16 @@ public class GameTest {
                     hero.delete();
                     hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
                     hero.draw();
+                    gameOver = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\gameover2.png");
+                    gameOver.draw();
                     isRunning = false;
+                    gamePlayMusic.stop();
+                    gameOverHit = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\punchHit.wav");
+                    gameOverHit.play(false);
+                    gameOverSound = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\gameOver.wav");
+                    gameOverSound.play(false);
                 }
             }
-
         }
 
     }
