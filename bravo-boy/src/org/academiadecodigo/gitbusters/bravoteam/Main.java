@@ -1,14 +1,18 @@
 package org.academiadecodigo.gitbusters.bravoteam;
 
-import org.academiadecodigo.gitbusters.bravoteam.grid.GridType;
+import org.academiadecodigo.gitbusters.bravoteam.gameEngine.GameTest;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        Game g = new Game(GridType.SIMPLE_GFX, 20, 12, 20);
+        GameTest gameTest = new GameTest();
 
-        g.init();
-        g.start();
+        while (true) {
+            if (gameTest.getRestartAvailable()) {
+                gameTest.stopGameOverMusic();
+                gameTest = new GameTest();
+            }
+        }
 
 
     }

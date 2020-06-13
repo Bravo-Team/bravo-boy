@@ -2,17 +2,17 @@ package org.academiadecodigo.gitbusters.bravoteam.gameEngine;
 
 import org.academiadecodigo.gitbusters.bravoteam.Sound;
 import org.academiadecodigo.gitbusters.bravoteam.Utility.Random;
-import org.academiadecodigo.gitbusters.bravoteam.figures.Block;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameTest {
 
-    private static final int CANVAS_WEIGHT = 960;
+    private static final int CANVAS_WIDTH = 960;
     private static final int CANVAS_HEIGHT = 540;
+    private static final int ROW_LEVEL = 490;
+    private static final int JUMP_LEVEL = 290;
     private static final int CELLSIZE = 50;
     private static final int PADDING = 10;
-    private static final int jumpHeight = -200;
     private boolean jump;
     private boolean inAir;
     private boolean isRunning = true;
@@ -35,22 +35,20 @@ public class GameTest {
     private boolean startGame = false;
     private boolean restartAvailable = false;
 
-
-
     public GameTest() throws InterruptedException {
         new KeyboardSetupRestart(this);
         new KeyboardSetupMenu(this);
         new KeyboardSetup(this);
-        Rectangle CANVAS = new Rectangle(PADDING, PADDING, CANVAS_WEIGHT, CANVAS_HEIGHT);
+        Rectangle CANVAS = new Rectangle(PADDING, PADDING, CANVAS_WIDTH, CANVAS_HEIGHT);
         CANVAS.draw();
         update();
     }
 
-    public boolean getIsRunning(){
+    public boolean getIsRunning() {
         return isRunning;
     }
 
-    public void stopGameOverMusic(){
+    public void stopGameOverMusic() {
         gameOverHit.stop();
         gameOverSound.stop();
     }
@@ -99,25 +97,25 @@ public class GameTest {
                     inAir = true;
                 }
 
-                if (inAir && hero.getY() > 290) {
+                if (inAir && hero.getY() > JUMP_LEVEL) {
                     hero.translate(0, -15);
                     if (hero.getY() == 290) {
                         inAir = false;
                     }
-                } else if (hero.getY() == 490) {
+
+                } else if (hero.getY() == ROW_LEVEL) {
                     onGrounded = true;
                     jump = false;
 
                 }
 
-                if (hero.getY() < 490) {
+                if (hero.getY() < ROW_LEVEL) {
                     hero.translate(0, 5);
                 }
 
-
                 if (block != null) {
                     if (block.getX() == random1) {
-                        block1 = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                        block1 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block1.draw();
                     }
                 }
@@ -128,9 +126,10 @@ public class GameTest {
                         block = null;
                     }
                 }
+
                 if (block == null && block1 != null) {
                     if (block1.getX() == random2) {
-                        block = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                        block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block.draw();
                     }
                 }
@@ -216,10 +215,10 @@ public class GameTest {
             increment += 50;
         }
 
-        hero = new Picture(150, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
+        hero = new Picture(150, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
 
-        block = new Picture(CANVAS_WEIGHT - CELLSIZE, 490, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+        block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
         block.draw();
 
     }

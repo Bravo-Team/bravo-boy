@@ -11,12 +11,12 @@ public class KeyboardSetup implements KeyboardHandler {
     private KeyboardEvent upKey = new KeyboardEvent();
     private GameTest gameTest;
 
-    public KeyboardSetup(GameTest gameTest){
+    public KeyboardSetup(GameTest gameTest) {
         this.gameTest = gameTest;
         setUpKey();
     }
 
-    public void setUpKey(){
+    public void setUpKey() {
         upKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         upKey.setKey(KeyboardEvent.KEY_SPACE);
         keyboard.addEventListener(upKey);
@@ -26,10 +26,9 @@ public class KeyboardSetup implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
-        if (keyboardEvent == upKey){
+        if (keyboardEvent == upKey) {
             gameTest.jump();
         }
-
 
     }
 

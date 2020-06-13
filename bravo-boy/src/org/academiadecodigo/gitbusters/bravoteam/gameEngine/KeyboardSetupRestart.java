@@ -11,12 +11,12 @@ public class KeyboardSetupRestart implements KeyboardHandler {
     private KeyboardEvent upKey = new KeyboardEvent();
     private GameTest gameTest;
 
-    public KeyboardSetupRestart(GameTest gameTest){
+    public KeyboardSetupRestart(GameTest gameTest) {
         this.gameTest = gameTest;
         setUpKey();
     }
 
-    public void setUpKey(){
+    public void setUpKey() {
         upKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         upKey.setKey(KeyboardEvent.KEY_SPACE);
         keyboard.addEventListener(upKey);
