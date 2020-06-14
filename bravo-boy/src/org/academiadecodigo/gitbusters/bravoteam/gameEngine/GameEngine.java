@@ -73,14 +73,13 @@ public class GameEngine {
     }
 
     public void initMenu() {
-        menuImage = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\startimg.png");
+        menuImage = new Picture(PADDING, PADDING, "resources/startimg.png");
         menuImage.draw();
-        menuMusic = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\menuSong.wav");
+        menuMusic = new Sound("/resources/music/menuSong.wav");
         menuMusic.play(false);
     }
 
     public void update() throws InterruptedException {
-
 
         while (isRunning) {
             Thread.sleep(10);
@@ -89,7 +88,6 @@ public class GameEngine {
                 initMenu();
                 isInMenu = false;
             }
-
 
             if (startGame) {
 
@@ -101,7 +99,7 @@ public class GameEngine {
                     hero.translate(0, -5);
                     onGrounded = false;
                     inAir = true;
-                    Sound jump = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\jump.wav");
+                    Sound jump = new Sound("/resources/music/jump.wav");
                     jump.play(false);
                 }
 
@@ -123,7 +121,7 @@ public class GameEngine {
 
                 if (block1 == null && block != null) {
                     if (block.getX() == random1) {
-                        block1 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                        block1 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "resources/block.png");
                         block1.draw();
                     }
                 }
@@ -141,17 +139,16 @@ public class GameEngine {
                     }
                 }
 
-
                 if (block == null && block2 != null) {
                     if (block2.getX() == random2) {
-                        block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                        block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "resources/block.png");
                         block.draw();
                     }
                 }
 
                 if (block2 == null && block1 != null) {
                     if (block1.getX() == random3) {
-                        block2 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+                        block2 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "resources/block.png");
                         block2.draw();
                     }
                 }
@@ -217,16 +214,16 @@ public class GameEngine {
                         int x = hero.getX();
                         int y = hero.getY();
                         hero.delete();
-                        hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
+                        hero = new Picture(x, y, "resources/deadHero.png");
                         hero.draw();
-                        gameOver = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\gameover2.png");
+                        gameOver = new Picture(PADDING, PADDING, "resources/gameover2.png");
                         gameOver.draw();
                         isRunning = false;
                         if (gamePlayMusic != null)
                             gamePlayMusic.stop();
-                        gameOverHit = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\punchHit.wav");
+                        gameOverHit = new Sound("/resources/music/punchHit.wav");
                         gameOverHit.play(false);
-                        gameOverSound = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\gameOver.wav");
+                        gameOverSound = new Sound("/resources/music/gameOver.wav");
                         gameOverSound.play(false);
                     }
                 }
@@ -236,16 +233,16 @@ public class GameEngine {
                         int x = hero.getX();
                         int y = hero.getY();
                         hero.delete();
-                        hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
+                        hero = new Picture(x, y, "resources/deadHero.png");
                         hero.draw();
-                        gameOver = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\gameover2.png");
+                        gameOver = new Picture(PADDING, PADDING, "resources/gameover2.png");
                         gameOver.draw();
                         isRunning = false;
                         if (gamePlayMusic != null)
                             gamePlayMusic.stop();
-                        gameOverHit = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\punchHit.wav");
+                        gameOverHit = new Sound("/resources/music/punchHit.wav");
                         gameOverHit.play(false);
-                        gameOverSound = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\gameOver.wav");
+                        gameOverSound = new Sound("/resources/music/gameOver.wav");
                         gameOverSound.play(false);
                     }
                 }
@@ -255,15 +252,15 @@ public class GameEngine {
                         int x = hero.getX();
                         int y = hero.getY();
                         hero.delete();
-                        hero = new Picture(x, y, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\deadHero.png");
+                        hero = new Picture(x, y, "resources/deadHero.png");
                         hero.draw();
-                        gameOver = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\gameover2.png");
+                        gameOver = new Picture(PADDING, PADDING, "resources/gameover2.png");
                         gameOver.draw();
                         isRunning = false;
                         gamePlayMusic.stop();
-                        gameOverHit = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\punchHit.wav");
+                        gameOverHit = new Sound("/resources/music/punchHit.wav");
                         gameOverHit.play(false);
-                        gameOverSound = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\gameOver.wav");
+                        gameOverSound = new Sound("/resources/music/gameOver.wav");
                         gameOverSound.play(false);
 
                     }
@@ -285,15 +282,15 @@ public class GameEngine {
         menuMusic.stop();
 
 
-        this.gamePlayMusic = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\GamePlayMusic.wav");
+        this.gamePlayMusic = new Sound("/resources/music/GamePlayMusic.wav");
         gamePlayMusic.setLoop(1000);
         gamePlayMusic.play(false);
 
-        background = new Picture(PADDING, PADDING, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\background.gif");
+        background = new Picture(PADDING, PADDING, "resources/background.gif");
         background.draw();
 
         for (int i = 0; i < 19; i++) {
-            ground = new Picture(increment, CANVAS_HEIGHT, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\ground-tile.png");
+            ground = new Picture(increment, CANVAS_HEIGHT, "resources/ground-tile.png");
             ground.draw();
             increment += 50;
         }
@@ -303,10 +300,10 @@ public class GameEngine {
         score.setColor(Color.WHITE);
         score.draw();
 
-        hero = new Picture(150, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
+        hero = new Picture(150, ROW_LEVEL, "resources/hero.png");
         hero.draw();
 
-        block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
+        block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "resources/block.png");
         block.draw();
 
     }

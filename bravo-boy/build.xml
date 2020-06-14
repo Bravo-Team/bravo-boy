@@ -1,42 +1,50 @@
-<project name="bravo-boy">
+<?xml version="1.0" ?>
 
-    <target name="init">
+<project name="bravo-boy" default="jarfile">
+
+    <!-- Initialize build properties  -->
+    <target name="init" description="Initializes properties">
         <property name="project.name" value="bravo-boy" />
         <property name="src.dir" value="src" />
+        <property name="main.class" value="org.academiadecodigo.gitbusters.bravoteam.Main" />
         <property name="build.dir" value="build" />
         <property name="classes.dir" value="${build.dir}/classes" />
         <property name="lib.dir" value="lib" />
-        <property name="main.class" value="org.academiadecodigo.gitbusters.bravoteam.Main" />
-        <property name="resources.dir" value="src/org.academiadecodigo.gitbusters.bravoteam.resources" />
+        <property name="resources.dir" value="resources"/>
         <path id="classpath">
-           <fileset dir="${lib.dir}" includes="**/*.jar" />
+            <fileset dir="${lib.dir}" includes="**/*.jar" />
         </path>
     </target>
 
-    <target name="prepare" description="Creates build and classes directories" depends="init">
+    <!-- Creates the build directories to hold JAR and Class files -->
+    <target name="prepare" description="Creates the build and classes directories" depends="init">
         <mkdir dir="${classes.dir}" />
     </target>
 
-    <target name="compile" description="Compiles all java files from this project" depends="prepare">
+    <!-- Removes the build directory -->
+    <target name="clean" description="Clean up project" depends="init">
+        <delete dir="${build.dir}" />
+    </target>
+
+    <!-- Compiles the source code -->
+    <target name="compile" description="Compiles the source code" depends="prepare">
         <javac srcdir="${src.dir}" destdir="${classes.dir}">
-            <classpath refid="classpath" />
+            <classpath refid="classpath"/>
         </javac>
     </target>
 
-    <target name="jarfile" description="Created our executable file" depends="compile">
-        <jar basedir="${classes.dir}" destfile="${build.dir}/${project.name}.jar">
+    <!-- Creates a JAR file -->
+    <target name="jarfile" description="Archives the code" depends="compile">
+        <jar destfile="${build.dir}/${project.name}.jar" basedir="${classes.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${main.class}" />
+                <attribute name="Class-Path" value="${lib.dir} ${resources.dir}" />
             </manifest>
             <zipgroupfileset dir="${lib.dir}" includes="*.jar"/>
             <fileset dir=".">
-                <include name="**/${resources.dir}/**" />
+                <include name="**/${resources.dir}/**"/>
             </fileset>
         </jar>
-    </target>
-
-    <target name="clean" description="Clean up project" depends="init">
-        <delete dir="${build.dir}" />
     </target>
 
 </project>
