@@ -2,7 +2,9 @@ package org.academiadecodigo.gitbusters.bravoteam.gameEngine;
 
 import org.academiadecodigo.gitbusters.bravoteam.Sound;
 import org.academiadecodigo.gitbusters.bravoteam.Utility.Random;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameTest {
@@ -31,12 +33,13 @@ public class GameTest {
     private Sound gameOverSound;
     private Sound gameOverHit;
     private Sound menuMusic;
+    private Text score;
     private Picture gameOver;
     private Picture menuImage;
     private boolean isInMenu = true;
     private boolean startGame = false;
     private boolean restartAvailable = false;
-    private int difficultyCounter = 0;
+    private Integer difficultyCounter = 0;
 
     public GameTest() throws InterruptedException {
         new KeyboardSetupRestart(this);
@@ -130,6 +133,11 @@ public class GameTest {
                         block.delete();
                         block = null;
                         difficultyCounter++;
+                        score.delete();
+                        score = new Text(835,50,"SCORE: " + difficultyCounter.toString());
+                        score.grow(70,25);
+                        score.setColor(Color.WHITE);
+                        score.draw();
                     }
                 }
 
@@ -153,6 +161,11 @@ public class GameTest {
                         block1.delete();
                         block1 = null;
                         difficultyCounter++;
+                        score.delete();
+                        score = new Text(835,50,"SCORE: " + difficultyCounter.toString());
+                        score.grow(70,25);
+                        score.setColor(Color.WHITE);
+                        score.draw();
                     }
                 }
 
@@ -161,6 +174,11 @@ public class GameTest {
                         block2.delete();
                         block2 = null;
                         difficultyCounter++;
+                        score.delete();
+                        score = new Text(835,50,"SCORE: " + difficultyCounter.toString());
+                        score.grow(70,25);
+                        score.setColor(Color.WHITE);
+                        score.draw();
                     }
                 }
 
@@ -279,6 +297,11 @@ public class GameTest {
             ground.draw();
             increment += 50;
         }
+
+        score = new Text(835,50,"SCORE: " + difficultyCounter.toString());
+        score.grow(70,25);
+        score.setColor(Color.WHITE);
+        score.draw();
 
         hero = new Picture(150, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\hero.png");
         hero.draw();
