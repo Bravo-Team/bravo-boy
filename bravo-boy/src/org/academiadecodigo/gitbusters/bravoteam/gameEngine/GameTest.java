@@ -36,6 +36,7 @@ public class GameTest {
     private boolean isInMenu = true;
     private boolean startGame = false;
     private boolean restartAvailable = false;
+    private int difficultyCounter = 0;
 
     public GameTest() throws InterruptedException {
         new KeyboardSetupRestart(this);
@@ -97,6 +98,8 @@ public class GameTest {
                     hero.translate(0, -5);
                     onGrounded = false;
                     inAir = true;
+                    Sound jump = new Sound("src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\music\\jump.wav");
+                    jump.play(false);
                 }
 
                 if (inAir && hero.getY() > JUMP_LEVEL) {
@@ -116,58 +119,79 @@ public class GameTest {
                 }
 
                 if (block1 == null && block != null) {
-                    if (block.getX() == random1) {
+                    if (block.getX() == 70) {
                         block1 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block1.draw();
                     }
                 }
 
                 if (block != null) {
-                    if (block.getX() == 0) {
+                    if (block.getX() <= 0) {
                         block.delete();
                         block = null;
+                        difficultyCounter++;
                     }
                 }
 
 
                 if (block == null && block2 != null) {
-                    if (block2.getX() == random2) {
+                    if (block2.getX() == 210) {
                         block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block.draw();
                     }
                 }
 
                 if (block2 == null && block1 != null) {
-                    if (block1.getX() == random3) {
+                    if (block1.getX() == 350) {
                         block2 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block2.draw();
                     }
                 }
 
                 if (block1 != null) {
-                    if (block1.getX() == 0) {
+                    if (block1.getX() <= 0) {
                         block1.delete();
                         block1 = null;
+                        difficultyCounter++;
                     }
                 }
 
                 if (block2 != null) {
-                    if (block2.getX() == 0) {
+                    if (block2.getX() <= 0) {
                         block2.delete();
                         block2 = null;
+                        difficultyCounter++;
                     }
                 }
 
                 if (block1 != null) {
-                    block1.translate(-5, 0);
+                    if (difficultyCounter < 5) {
+                        block1.translate(-5, 0);
+                    } else if (difficultyCounter >= 5 && difficultyCounter < 15) {
+                        block1.translate(-7, 0);
+                    } else {
+                        block1.translate(-10, 0);
+                    }
                 }
 
                 if (block != null) {
-                    block.translate(-5, 0);
+                    if (difficultyCounter < 5) {
+                        block.translate(-5, 0);
+                    } else if (difficultyCounter >= 5 && difficultyCounter < 15) {
+                        block.translate(-7, 0);
+                    } else {
+                        block.translate(-10, 0);
+                    }
                 }
 
                 if (block2 != null) {
-                    block2.translate(-5, 0);
+                    if (difficultyCounter < 5) {
+                        block2.translate(-5, 0);
+                    } else if (difficultyCounter >= 5 && difficultyCounter < 15) {
+                        block2.translate(-7, 0);
+                    } else {
+                        block2.translate(-10, 0);
+                    }
                 }
 
                 if (block2 != null) {
