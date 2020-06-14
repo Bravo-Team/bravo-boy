@@ -1,6 +1,5 @@
 package org.academiadecodigo.gitbusters.bravoteam.gameEngine;
 
-import org.academiadecodigo.gitbusters.bravoteam.Sound;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -10,10 +9,10 @@ public class KeyboardSetup implements KeyboardHandler {
 
     private Keyboard keyboard = new Keyboard(this);
     private KeyboardEvent upKey = new KeyboardEvent();
-    private GameTest gameTest;
+    private GameEngine gameEngine;
 
-    public KeyboardSetup(GameTest gameTest) {
-        this.gameTest = gameTest;
+    public KeyboardSetup(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
         setUpKey();
     }
 
@@ -28,7 +27,7 @@ public class KeyboardSetup implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent == upKey) {
-            gameTest.jump();
+            gameEngine.jump();
         }
 
     }

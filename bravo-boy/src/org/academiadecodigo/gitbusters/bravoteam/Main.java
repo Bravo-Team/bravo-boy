@@ -1,16 +1,16 @@
 package org.academiadecodigo.gitbusters.bravoteam;
 
-import org.academiadecodigo.gitbusters.bravoteam.gameEngine.GameTest;
+import org.academiadecodigo.gitbusters.bravoteam.gameEngine.GameEngine;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        GameTest gameTest = new GameTest();
+        GameEngine gameEngine = new GameEngine();
 
         while (true) {
-            if (gameTest.getRestartAvailable()) {
-                gameTest.stopGameOverMusic();
-                gameTest = new GameTest();
+            if (gameEngine.getRestartAvailable()) {
+                gameEngine.stopGameOverMusic();
+                gameEngine = new GameEngine();
             }
         }
 

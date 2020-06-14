@@ -9,10 +9,10 @@ public class KeyboardSetupRestart implements KeyboardHandler {
 
     private Keyboard keyboard = new Keyboard(this);
     private KeyboardEvent upKey = new KeyboardEvent();
-    private GameTest gameTest;
+    private GameEngine gameEngine;
 
-    public KeyboardSetupRestart(GameTest gameTest) {
-        this.gameTest = gameTest;
+    public KeyboardSetupRestart(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
         setUpKey();
     }
 
@@ -25,8 +25,8 @@ public class KeyboardSetupRestart implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        if (!gameTest.getIsRunning()) {
-            gameTest.setRestartAvailable(true);
+        if (!gameEngine.getIsRunning()) {
+            gameEngine.setRestartAvailable(true);
         }
     }
 

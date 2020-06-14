@@ -9,10 +9,10 @@ public class KeyboardSetupMenu implements KeyboardHandler {
 
     private Keyboard keyboard = new Keyboard(this);
     private KeyboardEvent upKey = new KeyboardEvent();
-    private GameTest gameTest;
+    private GameEngine gameEngine;
 
-    public KeyboardSetupMenu(GameTest gameTest) {
-        this.gameTest = gameTest;
+    public KeyboardSetupMenu(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
         setUpKey();
     }
 
@@ -25,7 +25,7 @@ public class KeyboardSetupMenu implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        gameTest.startGame();
+        gameEngine.startGame();
     }
 
     @Override
