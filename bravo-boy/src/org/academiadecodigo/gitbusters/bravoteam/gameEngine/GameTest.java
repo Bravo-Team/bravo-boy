@@ -12,7 +12,7 @@ public class GameTest {
     private static final int CANVAS_WIDTH = 960;
     private static final int CANVAS_HEIGHT = 540;
     private static final int ROW_LEVEL = 490;
-    private static final int JUMP_LEVEL = 290;
+    private static final int JUMP_LEVEL = 320;
     private static final int CELLSIZE = 50;
     private static final int PADDING = 10;
     private boolean jump;
@@ -27,7 +27,7 @@ public class GameTest {
     private Picture block2;
     private int increment = PADDING;
     private int random1 = Random.getRandomNum(1, 400);
-    private int random2 = Random.getRandomNum(1, 400);
+    private int random2 = Random.getRandomNum(200, 400);
     private int random3 = Random.getRandomNum(400, 500);
     private Sound gamePlayMusic;
     private Sound gameOverSound;
@@ -122,7 +122,7 @@ public class GameTest {
                 }
 
                 if (block1 == null && block != null) {
-                    if (block.getX() == 70) {
+                    if (block.getX() == random1) {
                         block1 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block1.draw();
                     }
@@ -143,14 +143,14 @@ public class GameTest {
 
 
                 if (block == null && block2 != null) {
-                    if (block2.getX() == 210) {
+                    if (block2.getX() == random2) {
                         block = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block.draw();
                     }
                 }
 
                 if (block2 == null && block1 != null) {
-                    if (block1.getX() == 350) {
+                    if (block1.getX() == random3) {
                         block2 = new Picture(CANVAS_WIDTH - CELLSIZE, ROW_LEVEL, "src\\org\\academiadecodigo\\gitbusters\\bravoteam\\resources\\block.png");
                         block2.draw();
                     }
@@ -183,9 +183,9 @@ public class GameTest {
                 }
 
                 if (block1 != null) {
-                    if (difficultyCounter < 5) {
+                    if (difficultyCounter < 8) {
                         block1.translate(-5, 0);
-                    } else if (difficultyCounter >= 5 && difficultyCounter < 15) {
+                    } else if (difficultyCounter >= 8 && difficultyCounter < 20) {
                         block1.translate(-7, 0);
                     } else {
                         block1.translate(-10, 0);
@@ -193,9 +193,9 @@ public class GameTest {
                 }
 
                 if (block != null) {
-                    if (difficultyCounter < 5) {
+                    if (difficultyCounter < 8) {
                         block.translate(-5, 0);
-                    } else if (difficultyCounter >= 5 && difficultyCounter < 15) {
+                    } else if (difficultyCounter >= 8 && difficultyCounter < 20) {
                         block.translate(-7, 0);
                     } else {
                         block.translate(-10, 0);
@@ -203,9 +203,9 @@ public class GameTest {
                 }
 
                 if (block2 != null) {
-                    if (difficultyCounter < 5) {
+                    if (difficultyCounter < 8) {
                         block2.translate(-5, 0);
-                    } else if (difficultyCounter >= 5 && difficultyCounter < 15) {
+                    } else if (difficultyCounter >= 8 && difficultyCounter < 20) {
                         block2.translate(-7, 0);
                     } else {
                         block2.translate(-10, 0);
